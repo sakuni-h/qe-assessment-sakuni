@@ -12,24 +12,31 @@ export default class LoginPage {
         console.log(`Navigate to: `);
     }
 
-    /*
-    LOCATORS
-        Locators of Login Page
-    */
+    
+    //LOCATORS
+        //Login Page
+    
     txtUsername = () => this.page.locator('[data-test="username"]'); // username field
     pwdPassword = () => this.page.locator('[data-test="password"]'); //password field
     btnSignIn = () => this.page.getByRole('button', { name: 'LOGIN' }); //sign in button
 
-    /*
-    ACTIONS
-        actions perfoms inside the class
-    */
+        //Logout
+    menuButton = () => this.page.locator('#react-burger-menu-btn');
+    logoutLink = () => this.page.locator('#logout_sidebar_link');
 
+    
+    //ACTIONS
+    
     //user login using given credentials
     public async userLogin(username: string, password: string) {
         await this.txtUsername().fill(username);
         await this.pwdPassword().fill(password);
         await this.btnSignIn().click();
         console.log("Login using: " + username + " username");
+    }
+    //Logout
+    public async logout() {
+    await this.menuButton().click();
+    await this.logoutLink().click();
     }
 }

@@ -3,17 +3,27 @@
   "version": "1.0.0",
   "description": "This README would normally document whatever steps are necessary to get your application up and running.",
   "main": "index.js",
-  "scripts": {},
+  
+  "scripts": {
+  "test-qeassessment": "npx playwright test --grep \"@assessment\"",
+  "report-qeassessment": "npx playwright show-report --port=9333"
+},
+
+  
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.45.3",
+    "@playwright/test": "^1.59.1",
     "@types/node": "^20.14.12"
   },
   "dependencies": {
     "@axe-core/playwright": "^4.9.1",
     "csv-parse": "^5.5.6",
     "dotenv": "^16.4.5"
+  },
+  "directories": {
+    "test": "tests"
   }
 }
